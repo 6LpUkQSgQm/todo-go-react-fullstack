@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - backend
+  db:
+    image: mongo:latest
+    ports:
+      - "7017:27017"
+    volumes:
+      - db:/data/db
+  backend:
+    depends_on:
+      - db
+    build: ./backend
+    restart: always
+    ports:
+      - "8877:8877"
+
+volumes:
+  db:
