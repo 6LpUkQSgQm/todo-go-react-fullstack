@@ -1,15 +1,15 @@
 package main
 
 import (
+	"backend/src/router"
 	"fmt"
 	"log"
 	"net/http"
-
-	"backend/router"
 )
 
 func main() {
 	r := router.Router()
-	fmt.Println("Starting server on the port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	fmt.Println("Starting server on the port 8877...")
+	log.Fatal(http.ListenAndServe(":8877", r))
+
 }
